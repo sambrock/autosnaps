@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+/* https://tailwindcss.com/ */
+@import "tailwindcss/utilities";
+
+/* Global Styles */
+:root {
+  --black: #0F0F0F;
+  --black-light: rgba(0, 0, 0, .65);
+  --red: #F23030;
+  --white: #FBFBFB;
+  --grey: #716969;
+  --dark-grey: #2D2E2E;
+  --white-light: rgba(255, 255, 255, .45);
+  --white-light2: rgba(255, 255, 255, .05);
+  --font-sans: 'Rajdhani', sans-serif;
+  --fz-xxs: 12px;
+  --fz-xs: 13px;
+  --fz-sm: 14px;
+  --fz-md: 16px;
+  --fz-lg: 18px;
+  --fz-xl: 20px;
+  --fz-xxl: 22px;
+  --fz-heading: 32px;
+  --easing: cubic-bezier(0.43, 0.13, 0.23, 0.96);
+  --transition: all 0.25s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+}
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--white);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dark-grey);
+}
+
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: var(--fz-md);
+  line-height: 1.3;
+
+  @media(max-width: 480px) {
+    font-size: var(--fz-lg);
+  }
+
+  &.hidden {
+    overflow: hidden;
+  }
+}
+
+#root {
+  // min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+}
+
+#content {
+  width: 100%;
+  margin: 85px auto 0;
+  z-index: 3;
+
+  @media (max-width: 634px) {
+    margin: 62px auto 0;
+  }
+}
+
+section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5rem 0;
+
+  @media(max-width: 1550px) {
+    max-width: 1100px;
+  }
+
+  @media(max-width: 1290px) {
+    max-width: 900px;
+  }
+
+  @media(max-width: 1080px) {
+    max-width: 700px;
+  }
+
+  @media(max-width: 768px) {
+    padding: 3rem 15px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+#map {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 105vh;
+  width: 100vw;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  line-height: 1.1;
+}
+
+.heading {
+  font-size: clamp(32px, 10vw, 62px);
+  letter-spacing: -1px;
+  letter-spacing: 2px;
+}
+
+.heading2 {
+  font-size: clamp(26px, 10vw, 42px);
+  letter-spacing: -1px;
+  letter-spacing: 2px;
+}
+
+.center-img {
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+button,
+.social-login-btn {
+  user-select: none;
+  background: none;
+  display: block;
+  color: var(--red);
+  border: 1px var(--red) solid;
+  min-width: 120px;
+  padding: 1rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+
+  &:focus {
+    outline: none;
+    color: var(--grey);
+    border: 1px var(--grey) solid;
+  }
+}
+
+.nav-btn {
+  color: var(--red);
+  border: 1px var(--red) solid;
+  padding: .6rem .75rem;
+  font-weight: 700;
+
+  &:focus {
+    outline: none;
+    color: var(--grey);
+    border: 1px var(--grey) solid;
+  }
+}
+
+.form-input {
+  background: none;
+  border: 1.4px var(--dark-grey) solid;
+  border-radius: none;
+  color: var(--white);
+  padding: 1rem 1.2rem;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: inherit;
+  width: 100%;
+
+  &:focus {
+    border-radius: none;
+    border-color: var(--red);
+    outline: none;
+  }
+
+  option {
+    background: var(--black);
+    color: var(--white);
+  }
+}
+
+.material-icons {
+  font-size: .9em;
+}
+
+.icon-btn {
+  color: var(--white-light);
+  font-size: 1.3em;
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--red);
+  }
+}
+
+.material-icons {
+  user-select: none;
+}
+
+hr {
+  display: block;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+
+  &.divider {
+    overflow: visible;
+    padding: 0;
+    margin-bottom: 10px;
+    border: none;
+    border-top: 1px solid var(--grey);
+    color: var(--grey);
+    text-align: center;
+
+    &::after {
+      content: 'OR';
+      display: inline-block;
+      position: relative;
+      top: -10px;
+      padding: 0 16px;
+      background: var(--black);
+    }
+  }
+}
+
+.social-login-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: none;
+
+  i {
+    margin-right: 12px;
+  }
+
+  &.github-login {
+    background: #24292e;
+    color: var(--white);
+  }
+
+  &.gitlab-login {
+    background: #E2432A;
+    color: var(--white);
+  }
+}
+
+.btn {
+  text-decoration: underline dotted;
+  cursor: pointer;
+}
+
+.search-bar {
+  border-top: 1px var(--dark-grey) solid;
+  border-bottom: 1px var(--dark-grey) solid;
+}
+
+.input-container {
+  border: 1px var(--dark-grey) solid;
+
+  i {
+    color: var(--grey);
+    font-size: 1.2em;
+    padding: 0 .6rem;
+  }
+
+  input {
+    border: none;
+    padding: .6rem .75rem .6rem 0;
+    color: var(--grey);
+  }
+
+  &:focus-within {
+    border: 1px var(--red) solid;
+  }
+
+  &.big-input {
+    width: 500px;
+
+    @media(max-width: 500px) {
+      width: 100%;
+    }
+
+    i {
+      padding: 0 1rem;
+    }
+
+    input {
+      padding: 1rem 1rem 1rem 0;
+      font-size: var(--fz-lg);
+      color: var(--white);
+    }
+  }
+}
+
+.border-dark-grey {
+  border: 1px var(--dark-grey) solid;
+}
+
+.border-btm {
+  border-bottom: 1px var(--dark-grey) solid;
+}
+
+.vertical-divider {
+  width: 2px;
+  background: var(--dark-grey);
+  height: 24px;
+}
+
+.transform-center {
+  transform: translate(-50%, -50%)
+}
+
+.dotted-underline {
+  border-bottom: 1px dotted var(--red);
+  padding-bottom: 1px;
+}
+
+a {
+  color: red;
+}
+
+/* Partials */
+@import 'partials/_pagination.scss';
+@import 'partials/_dropdown.scss';
+@import 'partials/_dropzone.scss';
+@import 'partials/_mapbox.scss';

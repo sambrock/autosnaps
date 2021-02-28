@@ -1,0 +1,144 @@
+.mapboxgl-map {
+  font: inherit !important;
+}
+
+.mapboxgl-popup {
+  z-index: 10;
+  max-width: none !important;
+  border: 2px var(--red) solid;
+  top: 15;
+  left: 0;
+
+  .mapboxgl-popup-tip {
+    display: none !important;
+  }
+
+  .mapboxgl-popup-content {
+    background: transparent !important;
+    color: var(--red);
+    font-size: 1.2em;
+    border-radius: 0px !important;
+    padding: .8rem;
+
+    .mapboxgl-popup-close-button {
+      border: none;
+      opacity: 0 !important;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.mapboxgl-ctrl-bottom-left {
+  bottom: calc(5vh + 24px);
+  left: 24px;
+
+  .mapboxgl-ctrl {
+    margin: 0;
+    margin: 0 0 12px 0;
+    border-radius: 0px;
+
+    button {
+      min-width: 30px;
+    }
+
+    &:nth-child(2) {
+      display: none !important;
+      visibility: hidden;
+    }
+  }
+
+  @media(max-width: 480px) {
+    display: none;
+  }
+}
+
+.marker {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  cursor: pointer;
+
+  .dot {
+    background: var(--white-light);
+    border-radius: 50%;
+    height: 7px;
+    width: 7px;
+    transition: all 250ms var(--easing);
+  }
+
+  .marker-txt {
+    position: absolute;
+    display: none;
+    top: 16px;
+    left: 42px;
+    white-space: nowrap;
+    opacity: 0;
+    z-index: 10;
+    transition: opacity 250ms var(--easing);
+
+    .location {
+      font-size: var(--fz-lg);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .count {
+      font-size: var(--fz-xs);
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      color: var(--white-light);
+      margin-top: 1px;
+    }
+  }
+
+  &:hover, &.active {
+    .dot {
+      background: var(--red);
+      height: 12px;
+      width: 12px;
+    }
+
+    .marker-txt {
+      display: flex;
+      flex-direction: column;
+      opacity: 1;
+      animation: fadeInOpacity 1 var(--easing) .5s;
+    }
+  }
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.location-container {
+  bottom: 24px;
+  right: 24px;
+
+  @media(max-width: 480px) {
+    left: 24px;
+  }
+
+}
+
+.location-btn {
+  padding: 16px;
+
+  @media(max-width: 480px) {
+    padding: 8px;
+  }
+}
+

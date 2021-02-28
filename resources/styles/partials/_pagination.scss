@@ -1,0 +1,38 @@
+.pagination {
+  margin-top: 5rem;
+
+  nav {
+    a, span {
+      color: var(--white-light);
+      padding: .5rem;
+      line-height: 100%;
+    }
+
+    a {
+      transition: var(--transition);
+
+      &:hover {
+        color: var(--red);
+      }
+    }
+
+    span.active {
+      font-weight: 600;
+      color: var(--red);
+    }
+
+    span.disabled {
+      font-weight: 600;
+      color: var(--dark-grey);
+    }
+
+    .icon-btn {
+      color: var(--white-light);
+      transition: var(--transition);
+
+      &:hover {
+        color: var(--red);
+      }
+    }
+  }
+}
